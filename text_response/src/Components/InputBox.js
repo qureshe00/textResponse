@@ -1,13 +1,11 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
- function InputBox() {
-  const [value, setValue] = React.useState('Controlled');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+ function InputBox({input}) {
+ 
+ /* const [prompt, setPrompt] = useState('')*/
 
   return (
     <Box
@@ -26,6 +24,8 @@ import TextField from '@mui/material/TextField';
           rows={5}
           defaultValue="Default Value"
           width="100%"
+          value={input[0]}
+          onChange={(e)=> {input[1](e.target.value)}}
         />
       </div>
     </Box>
