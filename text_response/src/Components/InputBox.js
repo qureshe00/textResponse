@@ -13,7 +13,7 @@ import TextField from '@mui/material/TextField';
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '55%' },
+        '& .MuiTextField-root': { width: '100%' },
       }}
       noValidate
       autoComplete="off"
@@ -25,6 +25,7 @@ import TextField from '@mui/material/TextField';
           multiline
           rows={5}
           defaultValue="Default Value"
+          width="100%"
         />
       </div>
     </Box>
