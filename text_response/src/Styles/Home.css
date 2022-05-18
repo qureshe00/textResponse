@@ -5,6 +5,11 @@
 h1#title {
     text-align: left;
 }
+
+h2#responses{
+    text-align: left;
+}
+
 #submitButton{
     width: 20%;
     height: 10%;

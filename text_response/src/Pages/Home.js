@@ -9,7 +9,9 @@ import { useState } from 'react';
 
 function Home() {
 
-    const [prompt, setPrompt] = useState('eesha')
+    const [prompt, setPrompt] = useState('')
+    const [key, setKey] = useState(0)
+    const [promptList, setPromptList] = useState([])
 
   return (
       //use stack
@@ -18,9 +20,16 @@ function Home() {
             <h1 id='title'>Fun With AI</h1>
             <InputBox id='textbox' input={[prompt, setPrompt]}/>
             <div id='buttons'>
-                <Button id='submitButton' variant="contained">Submit</Button>
+                <Button 
+                id='submitButton' 
+                variant="contained"
+                onClick={() => {setKey(key + 1); setPromptList([prompt, ...promptList]);}}
+                >Submit</Button>
             </div>
-            <ResponseCard input={[prompt, setPrompt]}/>
+            <h2 id='responses'>Responses</h2>
+            {/*<ResponseCard input={[prompt, setPrompt]}/>*/}
+            {promptList.map((item, index) => (
+            <ResponseCard input={item} key={index}></ResponseCard>))}
         </Stack>
     </div>
   )
