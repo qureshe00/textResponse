@@ -5,6 +5,7 @@ import ResponseCard from '../Components/ResponseCard'
 import { Stack } from '@mui/material'
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import API_key from '../environment';
 
 
 function Home() {
@@ -14,6 +15,22 @@ function Home() {
     const [promptList, setPromptList] = useState([])
     const [res, setRes] = useState()
     const [responseList, setResponseList] = useState([])
+    const [errorMessage, setErrorMessage] = useState(false)
+
+    function onButtonClick(){
+        if((typeof(prompt) === 'string' || prompt instanceof String) && prompt.length > 0){
+            setErrorMessage(false);
+            setPromptList([prompt, ...promptList]); 
+            req();
+            console.log(prompt)
+            console.log('valid input')
+            console.log(errorMessage)
+        } else {setErrorMessage(true)
+        console.log('not valid input')
+        console.log(errorMessage)
+        console.log(prompt)}
+
+    }
         
     function req(){ 
         const data = {
@@ -28,7 +45,7 @@ function Home() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer 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`,
+          Authorization: `Bearer ${API_key}`,
         },
         body: JSON.stringify(data),
        }).then(response => response.json())
@@ -46,9 +63,10 @@ function Home() {
                 <Button 
                 id='submitButton' 
                 variant="contained"
-                onClick={() => {setKey(key + 1); setPromptList([prompt, ...promptList]); req();}}
+                onClick={() => {onButtonClick();}}
                 >Submit</Button>
             </div>
+            {errorMessage && <h1>error</h1>}
             <h2 id='responses'>Responses</h2>
             {promptList.map((item, index) => (
             <ResponseCard input={item} reply={responseList[index]} key={index}></ResponseCard>))}
