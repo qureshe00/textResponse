@@ -35,7 +35,7 @@ function Home() {
     function req(){ 
         const data = {
             prompt: prompt,
-            temperature: 0.5,
+            temperature: 0.8,
             max_tokens: 64,
             top_p: 1.0,
             frequency_penalty: 0.0,
@@ -66,7 +66,7 @@ function Home() {
                 onClick={() => {onButtonClick();}}
                 >Submit</Button>
             </div>
-            {errorMessage && <h1>error</h1>}
+            {errorMessage && <h2>please enter a prompt</h2>}
             <h2 id='responses'>Responses</h2>
             {promptList.map((item, index) => (
             <ResponseCard input={item} reply={responseList[index]} key={index}></ResponseCard>))}
