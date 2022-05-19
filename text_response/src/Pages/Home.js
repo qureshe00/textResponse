@@ -6,6 +6,7 @@ import { Stack } from '@mui/material'
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import API_key from '../environment';
+import NavBar from '../Components/NavBar'
 
 
 function Home() {
@@ -55,7 +56,8 @@ function Home() {
 
   return (
       //use stack
-    <div id='container'>Home
+    <div id='container'>
+    <NavBar/>
         <Stack id='stack' spacing={2}>
             <h1 id='title'>Fun With AI</h1>
             <InputBox id='textbox' input={[prompt, setPrompt]}/>
