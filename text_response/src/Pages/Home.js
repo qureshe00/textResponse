@@ -7,17 +7,33 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import API_key from '../environment';
 import NavBar from '../Components/NavBar'
+import Settings from '../Components/Settings'
 
 
 function Home() {
 
     const [prompt, setPrompt] = useState('')
-    const [key, setKey] = useState(0)
+    const [initialCard, setInitialCard] = useState(true)
     const [promptList, setPromptList] = useState([])
     const [res, setRes] = useState()
     const [responseList, setResponseList] = useState([])
     const [errorMessage, setErrorMessage] = useState(false)
+        //dialog button
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+          setOpen(true);
+        };  
+    const handleClose = () => {
+          setOpen(false);
+        };
+        //end
+        //engine
+        const [engine, setEngine] = React.useState('');
 
+        const handleEngineChange = (event) => {
+          setEngine(event.target.value);
+        };
+        //end
     function onButtonClick(){
         if((typeof(prompt) === 'string' || prompt instanceof String) && prompt.length > 0){
             setErrorMessage(false);
@@ -35,6 +51,7 @@ function Home() {
         
     function req(){ 
         const data = {
+            //engine: "text-davinci-002",
             prompt: prompt,
             temperature: 0.8,
             max_tokens: 64,
@@ -42,7 +59,7 @@ function Home() {
             frequency_penalty: 0.0,
             presence_penalty: 0.0,
            }
-        fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+        fetch(`https://api.openai.com/v1/engines/${engine}/completions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +74,7 @@ function Home() {
   return (
       //use stack
     <div id='container'>
-    <NavBar/>
+    <NavBar handleClickOpen={handleClickOpen}/>
         <Stack id='stack' spacing={2}>
             <h1 id='title'>Fun With AI</h1>
             <InputBox id='textbox' input={[prompt, setPrompt]}/>
@@ -70,9 +87,11 @@ function Home() {
             </div>
             {errorMessage && <h2>please enter a prompt</h2>}
             <h2 id='responses'>Responses</h2>
+            {responseList.length === 0 && <ResponseCard input="" reply=""></ResponseCard>}
             {promptList.map((item, index) => (
             <ResponseCard input={item} reply={responseList[index]} key={index}></ResponseCard>))}
         </Stack>
+        <Settings open={open} handleClickOpen={handleClickOpen} handleClose={handleClose} engine={engine} handleEngineChange={handleEngineChange}/>
     </div>
   )
 }
