@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function Dropdown({engine, handleEngineChange}) {
+function Dropdown({engine, handleEngineChange}) {
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -27,3 +27,4 @@ export default function Dropdown({engine, handleEngineChange}) {
     </Box>
   );
 }
+export default Dropdown

@@ -13,7 +13,7 @@ const bull = (
     component="span"
     sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
   >
-    
+
   </Box>
 );
 
@@ -21,15 +21,14 @@ function ResponseCard({input, reply}) {
   return (
     <Card id='card' variant="outlined" style={{backgroundColor: '#F1FFF0'}}>
       <CardContent>
-          <Typography className='subheaders'>
-              <strong>Prompt:</strong> {input}
-          </Typography>      
-          <Typography className='subheaders'>
-              <strong>Response:</strong> {reply}
-          </Typography>
+        <Typography className='subheaders'>
+            <strong>Prompt:</strong> {input}
+        </Typography>      
+        <Typography className='subheaders'>
+            <strong>Response:</strong> {reply}
+        </Typography>
       </CardContent>
     </Card>
   );
 }
-
 export default ResponseCard;
