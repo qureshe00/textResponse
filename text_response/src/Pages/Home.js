@@ -5,7 +5,7 @@ import ResponseCard from '../Components/ResponseCard'
 import { Stack } from '@mui/material'
 import Button from '@mui/material/Button';
 import { useState } from 'react';
-import API_key from '../environment';
+/*import API_key from '../environment';*/
 import NavBar from '../Components/NavBar'
 import Settings from '../Components/Settings'
 import Alert from '@mui/material/Alert';
@@ -64,7 +64,7 @@ function Home() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${API_key}`,
+          Authorization: `Bearer ${process.env.API_KEY}`,
         },
         body: JSON.stringify(data),
        }).then(response => response.json())
