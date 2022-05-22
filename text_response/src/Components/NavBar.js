@@ -6,19 +6,26 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import SettingsIcon from '@mui/icons-material/Settings';
-import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Settings from './Settings';
+import '../Styles/NavBar.css';
 
-function NavBar({handleClickOpen}) {
+function NavBar({handleClickOpen, handleClickOpenHelp}) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar id='main' position="static">
         <Toolbar sx={{justifyContent: "space-between"}}>
             <div id='left'>
-                <Typography variant="h6">Fun With AI</Typography>
+                <Typography id="title" variant="h6">Fun With AI</Typography>
             </div>
             <div id='right'>
+            <IconButton 
+                id='help' 
+                color="inherit"
+                onClick={handleClickOpenHelp}>
+                <HelpOutlineIcon/>
+            </IconButton>
             <IconButton 
                 id='settings' 
                 color="inherit"

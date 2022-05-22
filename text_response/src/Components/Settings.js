@@ -6,6 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Dropdown from './Dropdown';
+import '../Styles/Settings.css';
 
 
 export default function Settings({open, handleClose, handleClickOpen, engine, handleEngineChange}) {
@@ -18,19 +19,18 @@ export default function Settings({open, handleClose, handleClickOpen, engine, ha
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
+          {"Choose a Response Engine"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous
-            location data to Google, even when no apps are running.
+            OpenAI offers four different GPT-3 models that trade-off between speed, accuracy and power. 
+            Select a different engine to see how it responds to your prompts.
           </DialogContentText>
-          <Dropdown engine={engine} handleEngineChange={handleEngineChange}/>
+          <Dropdown id="toggle" engine={engine} handleEngineChange={handleEngineChange}/>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
-            Agree
+          <Button onClick={handleClose} autoFocus color="secondary">
+            Close
           </Button>
         </DialogActions>
       </Dialog>

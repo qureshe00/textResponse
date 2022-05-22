@@ -17,14 +17,15 @@ import TextField from '@mui/material/TextField';
       autoComplete="off"
     >
       <div>
-        <TextField
+        <TextField 
           id="outlined-multiline-static"
-          label="Multiline"
+          label="Enter a prompt"
           multiline
           rows={5}
           /*defaultValue="Default Value"*/
           width="100%"
           value={input[0]}
+          color="success"
           onChange={(e)=> {input[1](e.target.value)}}
         />
       </div>

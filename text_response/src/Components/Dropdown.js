@@ -10,17 +10,18 @@ export default function Dropdown({engine, handleEngineChange}) {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <InputLabel id="simple-select-label">Engine</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="simple-select-label"
+          id="simple-select"
           value={engine}
-          label="Age"
+          label="Engine"
           onChange={handleEngineChange}
         >
           <MenuItem value={'text-curie-001'}>text-curie-001</MenuItem>
-          <MenuItem value={'text-curie-001'}>text-curie-001</MenuItem>
-          <MenuItem value={'text-curie-001'}>text-curie-001</MenuItem>
+          <MenuItem value={'text-davinci-002'}>text-davinci-002</MenuItem>
+          <MenuItem value={'text-babbage-001'}>text-babbage-001</MenuItem>
+          <MenuItem value={'text-ada-001'}>text-ada-001</MenuItem>
         </Select>
       </FormControl>
     </Box>

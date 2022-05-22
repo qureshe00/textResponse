@@ -1,7 +1,13 @@
-#settings{
+@import url('https://fonts.googleapis.com/css2?family=Corben&family=Dawning+of+a+New+Day&family=IBM+Plex+Mono&family=Orbitron&display=swap');
+#title{
+    font-family: 'IBM Plex Mono', monospace;
 }
 
-#left{
+#main{
+    background-color: #3F2754;
+}
+
+/*#left{
     flex: 50%;
     height: 100%;
     display: flex;
@@ -12,5 +18,5 @@
     flex: 50%;
     height: 100%;
     display: flex;
-    align-items: left;
-}
+    text-align: right;
+}*/

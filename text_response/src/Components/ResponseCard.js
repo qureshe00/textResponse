@@ -19,13 +19,13 @@ const bull = (
 
 function ResponseCard({input, reply}) {
   return (
-    <Card id='card' variant="outlined" style={{display: 'inline-block', width: '100%', backgroundColor: '#EBE3EA'}}>
+    <Card id='card' variant="outlined" style={{backgroundColor: '#F1FFF0'}}>
       <CardContent>
           <Typography className='subheaders'>
-              Prompt: {input}
+              <strong>Prompt:</strong> {input}
           </Typography>      
           <Typography className='subheaders'>
-              Response: {reply}
+              <strong>Response:</strong> {reply}
           </Typography>
       </CardContent>
     </Card>
