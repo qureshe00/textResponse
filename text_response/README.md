@@ -1,3 +1,11 @@
+To run locally you will need to generate your own API key from the OpenAI Completions API:
+
+1. Clone the repository using $git clone {http link}
+2. In textResponse/text_response/src/Pages/Home.js on line 67, replace the API key variable with your API key 
+3. Run the app with $npm run
+
+To run the deployed version visit https://text-response.herokuapp.com/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
